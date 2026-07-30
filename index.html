@@ -8,6 +8,12 @@
 <body>
     <img src="#" alt="">
     <button id="search">Click here to switch the image</button>
+
+    <p>
+        <h3>Search Box</h3>
+        <input id="searchbox" type="text">
+        <button id="searchbox1">Search</button>
+    </p>
     <script>
         const img = document.querySelector("img");
 
@@ -29,6 +35,24 @@
             .then(function(response) {
                 img.src = response.data.images.original.url;
             })
+        });
+
+        const searchbox = document.getElementById("searchbox");
+        const searchbox1 = document.getElementById("searchbox1");
+
+        searchbox1.addEventListener("click", () => {
+            const value = searchbox.value.trim();
+
+            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=Pt8QyMn7CdqNOwAXGvg60UohCJgYg8xs&s=${value}`)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(response) {
+                img.src = response.data.images.original.url;
+            })
+            .catch((error) => {
+                alert("Error fetching the image, try another search", error);
+            });
         });
     </script>
 </body>
