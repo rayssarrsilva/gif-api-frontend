@@ -16,6 +16,7 @@
         })
         .then(function(response) {
             img.src = response.data.images.original.url;
+            img.alt = "cat image";
         });
     </script>
 </body>
