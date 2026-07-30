@@ -1,37 +1,100 @@
-div#data {
-    background-color: lightseagreen;
+/* --- CONFIGURAÇÕES GERAIS DA PÁGINA --- */
+html {
+    background-color: gainsboro;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    width: 65%;
-    border: 3px solid lightseagreen;
-    border-radius: 10px;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    gap: 15px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 15px;
+    background-color: gainsboro;
+}
+
+div#data {
+    background-color: rgb(2, 112, 107);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 16px;
+    width: 100%;
+    max-width: 480px; 
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(176, 196, 222, 0.5);
 }
 
 input#searchbox {
-    width: 80%;
-    border: none;
-    border-radius: 10px;
-    padding: 30px;
+    flex: 1;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
 }
 
-h3 {
-    color: white;
-    font-weight: bolder;
-    letter-spacing: 2px;
-    text-shadow: 2px 4px 19px;
+input#searchbox:focus {
+    border-color: #20B2AA;
+    box-shadow: 0 0 0 2px rgba(32, 178, 170, 0.3);
 }
 
-button#searchbox1 {
+button#search {
     border: none;
-    border-radius: 20px;
-    background-color: darkcyan;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: medium;
-    letter-spacing: 3px;
+    background-color: #20B2AA;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+button#search:hover {
+    background-color: #1a9690;
+    transform: translateY(-1px);
+}
+
+button#search:active {
+    transform: translateY(1px);
+}
+
+img#main-image {
+    width: 300px;
+    height: 215px;
+    object-fit: cover;
+    
+    border: 12px solid #20B2AA;
+    border-radius: 35px / 25px; 
+    
+    box-shadow: 
+        inset 0 0 18px rgba(0, 0, 0, 0.6),        /* Sombra interna do vidro */
+        0 8px 20px rgba(84, 102, 101, 0.4),        /* Sombra externa suave */
+        0 0 10px rgba(32, 178, 170, 0.3);          /* Glow suave do neon */
+        
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+    
+    transition: transform 0.3s ease;
+}
+
+img#main-image:hover {
+    transform: scale(1.02);
 }
