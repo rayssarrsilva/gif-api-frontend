@@ -7,6 +7,7 @@
 </head>
 <body>
     <img src="#" alt="">
+    <button id="search">Click here to switch the image</button>
     <script>
         const img = document.querySelector("img");
 
@@ -17,6 +18,17 @@
         .then(function(response) {
             img.src = response.data.images.original.url;
             img.alt = "cat image";
+        });
+
+        const search = document.getElementById("search");
+        search.addEventListener("click", () => {
+            fetch('https://api.giphy.com/v1/gifs/translate?api_key=Pt8QyMn7CdqNOwAXGvg60UohCJgYg8xs&s=cats')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(response) {
+                img.src = response.data.images.original.url;
+            })
         });
     </script>
 </body>
